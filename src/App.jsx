@@ -1,16 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Dashboard from './pages/Dashboard';
+import BotList from './pages/BotList';
+import BotBuilder from './pages/BotBuilder';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-     <h1 className='bg-red-500'>Hello world</h1>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="bots" element={<BotList />} />
+          <Route path="bots/new" element={<BotBuilder />} />
+          <Route path="settings" element={<div className="p-4">Settings Page (Coming Soon)</div>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
