@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import BotList from './pages/BotList';
 import BotBuilder from './pages/BotBuilder';
+import BotDetails from './pages/BotDetails';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="bots" element={<BotList />} />
           <Route path="bots/new" element={<BotBuilder />} />
+          <Route path="bots/:botId" element={<BotDetails />} />
           <Route path="settings" element={<div className="p-4">Settings Page (Coming Soon)</div>} />
         </Route>
       </Routes>

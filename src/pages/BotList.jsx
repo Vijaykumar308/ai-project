@@ -58,55 +58,57 @@ const BotList = () => {
             <div className="grid grid-cols-1 gap-4">
                 {filteredBots.length > 0 ? (
                     filteredBots.map((bot) => (
-                        <Card key={bot.id} className="p-6 hover:shadow-md transition-shadow">
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                                <div className="flex items-start gap-4">
-                                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${bot.status === 'Active' ? 'bg-green-100 text-green-600' :
-                                        bot.status === 'Paused' ? 'bg-yellow-100 text-yellow-600' :
-                                            'bg-gray-100 text-gray-600'
-                                        }`}>
-                                        {bot.status === 'Active' ? <Play size={24} /> :
-                                            bot.status === 'Paused' ? <Pause size={24} /> :
-                                                <Edit size={24} />}
+                        <Link to={`/bots/${bot.id}`} key={bot.id} className="block">
+                            <Card className="p-6 hover:shadow-md transition-shadow cursor-pointer">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <div className="flex items-start gap-4">
+                                        <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${bot.status === 'Active' ? 'bg-green-100 text-green-600' :
+                                            bot.status === 'Paused' ? 'bg-yellow-100 text-yellow-600' :
+                                                'bg-gray-100 text-gray-600'
+                                            }`}>
+                                            {bot.status === 'Active' ? <Play size={24} /> :
+                                                bot.status === 'Paused' ? <Pause size={24} /> :
+                                                    <Edit size={24} />}
+                                        </div>
+                                        <div>
+                                            <h3 className="text-lg font-bold text-gray-900">{bot.name}</h3>
+                                            <div className="flex items-center gap-2 text-sm text-gray-500">
+                                                <span>{bot.type}</span>
+                                                <span>•</span>
+                                                <span>{bot.voiceStyle}</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold text-gray-900">{bot.name}</h3>
-                                        <div className="flex items-center gap-2 text-sm text-gray-500">
-                                            <span>{bot.type}</span>
-                                            <span>•</span>
-                                            <span>{bot.voiceStyle}</span>
+
+                                    <div className="flex items-center gap-8">
+                                        <div className="text-center sm:text-left">
+                                            <p className="text-sm text-gray-500">Total Calls</p>
+                                            <p className="font-medium text-gray-900">{bot.calls}</p>
+                                        </div>
+                                        <div className="text-center sm:text-left">
+                                            <p className="text-sm text-gray-500">Last Active</p>
+                                            <p className="font-medium text-gray-900">{bot.lastActive}</p>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${bot.status === 'Active' ? 'bg-green-100 text-green-800' :
+                                                bot.status === 'Paused' ? 'bg-yellow-100 text-yellow-800' :
+                                                    'bg-gray-100 text-gray-800'
+                                                }`}>
+                                                {bot.status}
+                                            </span>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <Button variant="ghost" className="p-2" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+                                                <Edit size={18} />
+                                            </Button>
+                                            <Button variant="ghost" className="p-2 text-red-600 hover:bg-red-50" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+                                                <Trash2 size={18} />
+                                            </Button>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="flex items-center gap-8">
-                                    <div className="text-center sm:text-left">
-                                        <p className="text-sm text-gray-500">Total Calls</p>
-                                        <p className="font-medium text-gray-900">{bot.calls}</p>
-                                    </div>
-                                    <div className="text-center sm:text-left">
-                                        <p className="text-sm text-gray-500">Last Active</p>
-                                        <p className="font-medium text-gray-900">{bot.lastActive}</p>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${bot.status === 'Active' ? 'bg-green-100 text-green-800' :
-                                            bot.status === 'Paused' ? 'bg-yellow-100 text-yellow-800' :
-                                                'bg-gray-100 text-gray-800'
-                                            }`}>
-                                            {bot.status}
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <Button variant="ghost" className="p-2">
-                                            <Edit size={18} />
-                                        </Button>
-                                        <Button variant="ghost" className="p-2 text-red-600 hover:bg-red-50">
-                                            <Trash2 size={18} />
-                                        </Button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Card>
+                            </Card>
+                        </Link>
                     ))
                 ) : (
                     <div className="text-center py-12 text-gray-500">
