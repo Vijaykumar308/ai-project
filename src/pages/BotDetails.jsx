@@ -52,16 +52,24 @@ with open('response.wav', 'wb') as f:
 
     return (
         <div className="space-y-6">
-            <div className="flex items-center gap-4 mb-6">
-                <Link to="/bots">
-                    <Button variant="ghost" className="p-2">
-                        <ArrowLeft size={20} />
+            <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-4">
+                    <Link to="/bots">
+                        <Button variant="ghost" className="p-2">
+                            <ArrowLeft size={20} />
+                        </Button>
+                    </Link>
+                    <div>
+                        <h2 className="text-2xl font-bold text-gray-900">{botData.name}</h2>
+                        <p className="text-gray-500">Bot ID: {botData.id}</p>
+                    </div>
+                </div>
+
+                <Link to="/voice-demo">
+                    <Button className="bg-green-600 hover:bg-green-700 text-white">
+                        Connect with Agent
                     </Button>
                 </Link>
-                <div>
-                    <h2 className="text-2xl font-bold text-gray-900">{botData.name}</h2>
-                    <p className="text-gray-500">Bot ID: {botData.id}</p>
-                </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

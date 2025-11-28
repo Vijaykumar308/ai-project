@@ -151,12 +151,13 @@ with open('response.wav', 'wb') as f:
                                 { label: 'Energetic', value: 'energetic' }
                             ]}
                         />
-
                         <Select
                             label="Bot Type"
                             options={[
                                 { label: 'Scripted Q&A', value: 'scripted' },
-                                { label: 'LLM Conversational', value: 'llm' }
+                                { label: 'LLM Conversational', value: 'llm' },
+                                { label: 'Knowledge Base', value: 'knowledge_base' },
+                                { label: 'Conversation bot', value: 'Conversation bot' }
                             ]}
                         />
                     </Card>
