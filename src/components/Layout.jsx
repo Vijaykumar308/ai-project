@@ -14,8 +14,8 @@ const SidebarItem = ({ icon: Icon, label, to, active }) => (
     <Link
         to={to}
         className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${active
-                ? 'bg-blue-50 text-blue-600'
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+            ? 'bg-blue-50 text-blue-600'
+            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
             }`}
     >
         <Icon size={20} />
@@ -33,14 +33,14 @@ const Layout = () => {
                 <div className="p-6 border-b border-gray-100">
                     <div className="flex items-center gap-2 text-blue-600">
                         <Bot size={28} />
-                        <span className="text-xl font-bold text-gray-900">VoiceBot AI</span>
+                        <span className="text-xl font-bold text-gray-900">VoiceBot Studio</span>
                     </div>
                 </div>
 
                 <nav className="flex-1 p-4 space-y-1">
                     <SidebarItem
                         icon={LayoutDashboard}
-                        label="Dashboard"
+                        label="Home"
                         to="/"
                         active={location.pathname === '/'}
                     />
@@ -50,12 +50,12 @@ const Layout = () => {
                         to="/bots"
                         active={location.pathname.startsWith('/bots')}
                     />
-                    <SidebarItem
+                    {/* <SidebarItem
                         icon={Settings}
-                        label="Settings"
+                        label="Settings adad"
                         to="/settings"
                         active={location.pathname === '/settings'}
-                    />
+                    /> */}
                 </nav>
 
                 <div className="p-4 border-t border-gray-100">
@@ -87,8 +87,8 @@ const Layout = () => {
                         </button>
                         <div className="flex items-center gap-3 pl-4 border-l border-gray-200">
                             <div className="text-right hidden sm:block">
-                                <p className="text-sm font-medium text-gray-900">John Doe</p>
-                                <p className="text-xs text-gray-500">Pro Plan</p>
+                                <p className="text-sm font-medium text-gray-900">Aniket</p>
+                                <p className="text-xs text-gray-500"></p>
                             </div>
                             <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
                                 <User size={18} />

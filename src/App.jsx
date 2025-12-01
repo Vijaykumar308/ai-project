@@ -8,6 +8,8 @@ import BotDetails from './pages/BotDetails';
 import TestBot from './pages/TestBot';
 import VoiceConversion from './pages/VoiceConversion';
 
+import Aniket from './pages/Aniket';
+
 function App() {
   return (
     <BrowserRouter>
@@ -19,7 +21,9 @@ function App() {
           <Route path="bots/:botId" element={<BotDetails />} />
           <Route path="test-bot" element={<TestBot />} />
           <Route path="voice-demo" element={<VoiceConversion />} />
-          <Route path="settings" element={<div className="p-4">Settings Page (Coming Soon)</div>} />
+          <Route path="aniket" element={<Aniket />} />
+          <Route path="settings" element={<div className="p-4">Settingsasd  Page (Coming Soon)</div>} />
+          <Route path="aniket" element={<Aniket />} />
         </Route>
       </Routes>
     </BrowserRouter>
